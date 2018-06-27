@@ -10,7 +10,7 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-           stage('stage2) {
+           stage('stage2') {
                 always {
                     junit 'target/surefire-reports/**/*.xml'
                 }
