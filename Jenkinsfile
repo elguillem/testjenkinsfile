@@ -5,15 +5,6 @@ pipeline {
         maven "maven_354"
     }
     stages {
-        
-        
-                    stage('Checkout') {
-            steps {
-                git url: 'https://github.com/jglick/simple-maven-project-with-tests'
-            }
-        }
-            
-            
         stage('Build') {
             steps {
                 sh 'mvn clean package'
@@ -21,7 +12,8 @@ pipeline {
         }
            stage('stage2') {
                 steps {
-                    junit 'target/surefire-reports/**/*.xml'
+                    archive 'target/surefire-reports/*'
+                    archive 'target/*.jar'
                 }
             }
         
