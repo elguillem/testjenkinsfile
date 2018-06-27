@@ -16,7 +16,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'target/*.xml'
+                    junit '/home/vagrant/workspace/jenkinsfiletest/target/surefire-reports.xml'
                 }
             }
         }
